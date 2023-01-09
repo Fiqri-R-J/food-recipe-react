@@ -45,12 +45,12 @@ function Home() {
             </ul>
           </div>
           <div className="col-lg-2 col-xs-5">
-            <Link>
+            <Link to="/login">
               <button type="button" className="btn btn-warning shadow-sm">
                 Log In
               </button>
             </Link>
-            <Link>
+            <Link to="/register">
               <button type="button" className="btn btn-light shadow-sm">
                 Register
               </button>
@@ -140,13 +140,11 @@ function Home() {
                 Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in
                 a hurry? That’s right!
               </p>
-              <a
-                type="button"
-                className="btn btn-warning"
-                href="detailrecipe.html"
-              >
-                See More
-              </a>
+              <Link to="/detail">
+                <button type="button" className="btn btn-warning">
+                  See More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
