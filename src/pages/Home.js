@@ -37,7 +37,7 @@ function Home() {
                 <Link to="/">Home</Link>
               </li>
               <li className="nav-item me-5">
-                <Link to="#">Add Recipe</Link>
+                <Link to="/addrecipe">Add Recipe</Link>
               </li>
               <li className="nav-item me-5">
                 <Link to="#"> Profile</Link>

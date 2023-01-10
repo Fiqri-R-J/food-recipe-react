@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Detail from "./pages/Detail";
+import AddRecipe from "./pages/AddRecipe";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ function App() {
     {
       path: "register",
       element: <Register />,
+    },
+    {
+      path: "addrecipe",
+      element: <AddRecipe />,
     },
     {
       path: "detail",
