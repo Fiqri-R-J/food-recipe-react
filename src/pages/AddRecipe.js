@@ -49,12 +49,22 @@ function AddRecipe() {
         <div class="container">
           <div class="mb-3">
             <label for="formFileMultiple" class="form-label"></label>
-            {/* <input class="form-control" type="file" id="formFileMultiple" multiple> */}
+            <input
+              class="form-control"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            />
           </div>
         </div>
         {/* <!-- content --> */}
         <div class="container">
-          {/* <input class="form-control mb-3" type="text" placeholder="Title" aria-label="default input example"> */}
+          <input
+            class="form-control mb-3"
+            type="text"
+            placeholder="Title"
+            aria-label="default input example"
+          />
           <div class="mb-3">
             <textarea
               class="form-control"
@@ -64,7 +74,7 @@ function AddRecipe() {
             ></textarea>
           </div>
           <div class="mb-3">
-            {/* <input class="form-control" type="file" id="formFile"> */}
+            <input class="form-control" type="file" id="formFile" />
           </div>
           <div class="col-sm-12 text-center">
             <button type="button" class="btn btn-warning">

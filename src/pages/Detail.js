@@ -63,9 +63,20 @@ function Detail() {
             </div>
             {/* <!-- side right --> */}
             <div className="col-lg-5 offset-lg-1 col-xs-12 mt-xs-5">
-              <h4>Ingredients</h4>- 2 eggs, - 2 tbsp mayonnaise, - 3 slices
-              bread, - a little butter, - ⅓ carton of cress, - 2-3 slices of
-              tomato or a lettuce leaf, and a slice of ham or cheese, - crisps ,
+              <h4>Ingredients</h4>- 2 eggs,
+              <br />
+              - 2 tbsp mayonnaise, <br />
+              - 3 slices bread,
+              <br />
+              - a little butter,
+              <br />
+              - ⅓ carton of cress,
+              <br />
+              - 2-3 slices of
+              <br />
+              tomato or a lettuce leaf, and a slice of ham or cheese,
+              <br />
+              - crisps ,<br />
               to serve,
               <h4>Video Step</h4>
               <button
