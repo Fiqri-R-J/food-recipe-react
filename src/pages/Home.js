@@ -40,7 +40,7 @@ function Home() {
                 <Link to="/addrecipe">Add Recipe</Link>
               </li>
               <li className="nav-item me-5">
-                <Link to="#"> Profile</Link>
+                <Link to="/profile"> Profile</Link>
               </li>
             </ul>
           </div>
