@@ -1,45 +1,13 @@
 import React from "react";
 import "../styles/profile.css";
+import Navbar from "../components/organisms/Navbar";
+import Footer from "../components/organisms/Footer";
 
 function Profile() {
   return (
     <div>
       {/* <!--Navbar--> */}
-      <nav className="navbar navbar-expand-lg">
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item me-5">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item me-5">
-                <a className="nav-link" href="#">
-                  Add Recipe
-                </a>
-              </li>
-              <li className="nav-item me-5">
-                <a className="nav-link" href="#">
-                  Profile
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
       {/* <!--End Navbar--> */}
       {/* <!--Header--> */}
       <section id="header">
@@ -109,16 +77,7 @@ function Profile() {
       </section>
       {/* <!--End My Recipe--> */}
       {/* <!-- footer --> */}
-      <footer>
-        <div>
-          <h2>Eat, Cook, Repeat</h2>
-          <p>Share your best recipe by uploading here !</p>
-
-          <div className="footer-link">
-            <p>Product | Company | Learn More | Get In Touch</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
       {/* <!-- end of footer --> */}
     </div>
   );

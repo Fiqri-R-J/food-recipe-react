@@ -1,46 +1,14 @@
 import React from "react";
 import "../styles/detail.css";
+import Navbar from "../components/organisms/Navbar";
+import Footer from "../components/organisms/Footer";
 
 function AddRecipe() {
   return (
     <div>
       {/* <!-- Display for laptop --> */}
       {/* <!-- Navbar --> */}
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item me-5">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item me-5">
-                <a class="nav-link" href="#">
-                  Add Recipe
-                </a>
-              </li>
-              <li class="nav-item me-5">
-                <a class="nav-link" href="#">
-                  Profile
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
       {/* <!-- end of navbar --> */}
 
       {/* <!-- new recipe --> */}
@@ -86,16 +54,7 @@ function AddRecipe() {
       {/* <!-- end of new recipe --> */}
 
       {/* <!-- footer --> */}
-      <footer>
-        <div>
-          <h2>Eat, Cook, Repeat</h2>
-          <p>Share your best recipe by uploading here !</p>
-
-          <div class="footer-link">
-            <p>Product | Company | Learn More | Get In Touch</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
       {/* <!-- end of footer --> */}
     </div>
   );
