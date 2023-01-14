@@ -12,7 +12,7 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
-
+import Maintenance from "./pages/Maintenance";
 function App() {
   const router = createBrowserRouter([
     {
@@ -41,7 +41,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  if (process.env.REACT_APP_IS_MAINTENANCE === "true") {
+    return <Maintenance />;
+  } else {
+    return <RouterProvider router={router} />;
+  }
 }
 
 export default App;

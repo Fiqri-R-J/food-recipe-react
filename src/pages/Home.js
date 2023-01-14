@@ -1,63 +1,16 @@
 import React from "react";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
+import Navbar from "../components/organisms/Navbar";
+import Footer from "../components/organisms/Footer";
+import IndexCard from "../components/molecules/IndexCard";
 
 function Home() {
-  React.useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 100) {
-        document.querySelector(".navbar").classList.add("navbar-background");
-      } else {
-        document.querySelector(".navbar").classList.remove("navbar-background");
-      }
-    });
-  }, []);
-
   return (
     <div>
       {/*<!-- Display for laptop -->*/}
       {/* <!-- Navbar --> */}
-      <nav className="navbar navbar-expand-lg fixed-top">
-        <div className="container">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item me-5">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="nav-item me-5">
-                <Link to="/addrecipe">Add Recipe</Link>
-              </li>
-              <li className="nav-item me-5">
-                <Link to="/profile"> Profile</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="col-lg-2 col-xs-5">
-            <Link to="/login">
-              <button type="button" className="btn btn-warning shadow-sm">
-                Log In
-              </button>
-            </Link>
-            <Link to="/register">
-              <button type="button" className="btn btn-light shadow-sm">
-                Register
-              </button>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
       {/* <!-- end of navbar --> */}
 
       {/* <!-- header --> */}
@@ -161,88 +114,18 @@ function Home() {
 
           {/* <!-- recipe list --> */}
           <div className="row">
-            <div className="col-lg-4 col-6">
-              <div className="clickable-image mb-4">
-                <img
-                  src="./images/home/chicken-kare.jpg"
-                  height="100%"
-                  width="100%"
-                  alt="popular-recipe"
-                />
-                <h2 className="image-title">Chiken Kare</h2>
+            {[...new Array(6)].map(() => (
+              <div className="col-lg-4 col-6">
+                <IndexCard />
               </div>
-            </div>
-            <div className="col-lg-4 col-6">
-              <div className="clickable-image mb-4">
-                <img
-                  src="./images/home/bomb-chicken.png"
-                  height="100%"
-                  width="100%"
-                  alt="popular-recipe"
-                />
-                <h2 className="image-title">Bomb Chicken</h2>
-              </div>
-            </div>
-            <div className="col-lg-4 col-6">
-              <div className="clickable-image mb-4">
-                <img
-                  src="./images/home/Banana-Smothie-Pop.png"
-                  height="100%"
-                  width="100%"
-                  alt="popular-recipe"
-                />
-                <h2 className="image-title">Banana Smothie Pop</h2>
-              </div>
-            </div>
-            <div className="col-lg-4 col-6">
-              <div className="clickable-image mb-4">
-                <img
-                  src="./images/home/coffe-lava-cake.png"
-                  height="100%"
-                  width="100%"
-                  alt="popular-recipe"
-                />
-                <h2 className="image-title">Coffe Lava Cake</h2>
-              </div>
-            </div>
-            <div className="col-lg-4 col-6">
-              <div className="clickable-image mb-4">
-                <img
-                  src="./images/home/sugar-salmon.png"
-                  height="100%"
-                  width="100%"
-                  alt="popular-recipe"
-                />
-                <h2 className="image-title">Sugar Salmon</h2>
-              </div>
-            </div>
-            <div className="col-lg-4 col-6">
-              <div className="clickable-image mb-4">
-                <img
-                  src="./images/home/indian-salad.png"
-                  height="100%"
-                  width="100%"
-                  alt="popular-recipe"
-                />
-                <h2 className="image-title">Indian Salad</h2>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
       {/* <!-- end of popular recipe --> */}
 
       {/* <!-- footer --> */}
-      <footer>
-        <div>
-          <h2>Eat, Cook, Repeat</h2>
-          <p>Share your best recipe by uploading here !</p>
-
-          <div className="footer-link">
-            <p>Product | Company | Learn More | Get In Touch</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
