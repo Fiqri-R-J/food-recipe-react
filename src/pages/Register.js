@@ -8,7 +8,12 @@ function Register() {
         {/* <!-- left side --> */}
         <div className="col-6 background-login">
           <div>
-            <img src="./images/logo.png" width="150px" height="150px" />
+            <img
+              src="./images/logo.png"
+              width="150px"
+              height="150px"
+              alt="logo"
+            />
             <p className="text-white text-center mt-2">Mama Recipe.</p>
           </div>
         </div>

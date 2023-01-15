@@ -5,6 +5,24 @@ import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import IndexCard from "../components/molecules/IndexCard";
 
+const menu = [
+  {
+    name: "chiken kare",
+    image:
+      "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/chicken-kare.jpg",
+  },
+  {
+    name: "bomb-chicken",
+    image:
+      "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/bomb-chicken.png",
+  },
+  {
+    name: "sugar salmon",
+    image:
+      "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/sugar-salmon.png",
+  },
+];
+
 function Home() {
   return (
     <div>
@@ -114,9 +132,9 @@ function Home() {
 
           {/* <!-- recipe list --> */}
           <div className="row">
-            {[...new Array(6)].map(() => (
+            {menu.map((item) => (
               <div className="col-lg-4 col-6">
-                <IndexCard />
+                <IndexCard image={item?.image} name={item?.name} />
               </div>
             ))}
           </div>

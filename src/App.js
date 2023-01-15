@@ -14,6 +14,7 @@ import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
 import Maintenance from "./pages/Maintenance";
 function App() {
+  const maintenance = ["/detail", "/profile", "/register", "/addrecipe"];
   const router = createBrowserRouter([
     {
       path: "/",
@@ -41,7 +42,10 @@ function App() {
     },
   ]);
 
-  if (process.env.REACT_APP_IS_MAINTENANCE === "true") {
+  const isPageMaintenance =
+    process.env.REACT_APP_IS_MAINTENANCE === "true" &&
+    maintenance.find((res) => res === document.location.pathname);
+  if (isPageMaintenance) {
     return <Maintenance />;
   } else {
     return <RouterProvider router={router} />;

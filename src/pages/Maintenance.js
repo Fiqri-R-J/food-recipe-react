@@ -17,7 +17,11 @@ function Maintenance() {
             justifyContent: "center",
           }}
         >
-          <img src="/images/undraw_fixing_bugs.svg" width="300px" />
+          <img
+            src="/images/undraw_fixing_bugs.svg"
+            width="300px"
+            alt="maintenance"
+          />
         </div>
         <h1>Page Under Maintenance</h1>
       </div>

@@ -27,6 +27,7 @@ function Detail() {
                 width="100%"
                 height="500px"
                 className="main-image"
+                alt="detai-recipe"
               />
             </div>
             {/* <!-- side right --> */}

@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/profile.css";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
+import { Link } from "react-router-dom";
 
 function Profile() {
   return (
@@ -29,19 +30,19 @@ function Profile() {
           <div className="col">
             <ul className="nav nav-tabs">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" href="#">
                   My Recipe
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="#">
                   Saved Recipe
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" href="#">
                   Liked Recipe
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -58,6 +59,7 @@ function Profile() {
                   src="./images/home/chicken-kare.jpg"
                   height="100%"
                   width="100%"
+                  alt="recipe"
                 />
                 <h2 className="image-title">Chiken Kare</h2>
               </div>
@@ -68,6 +70,7 @@ function Profile() {
                   src="./images/home/bomb-chicken.png"
                   height="100%"
                   width="100%"
+                  alt="recipe"
                 />
                 <h2 className="image-title">Bomb Chicken</h2>
               </div>
