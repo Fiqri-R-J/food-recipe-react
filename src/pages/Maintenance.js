@@ -1,6 +1,10 @@
 import React from "react";
 
-function Maintenance() {
+function Maintenance(props) {
+  React.useEffect(() => {
+    props.maintenanceList.find((res) => res === window.location.pathname);
+    console.log(window.location.pathname);
+  }, [window.location]);
   return (
     <div
       style={{

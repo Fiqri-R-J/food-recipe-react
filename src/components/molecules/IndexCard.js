@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function IndexCard(props) {
-  const { image, name } = props;
+  const { image, name, url } = props;
   return (
-    <Link to="/detail">
+    <Link to={`/detail/${url}`}>
       <div className="clickable-image mb-4 shadow-lg">
         <img
           src={image || "./images/home/chicken-kare.jpg"}

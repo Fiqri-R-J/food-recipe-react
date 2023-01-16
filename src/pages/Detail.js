@@ -1,9 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import "../styles/detail.css";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 
 function Detail() {
+  let { id } = useParams();
   return (
     <div>
       {/* <!-- Display for laptop --> */}
@@ -15,7 +17,7 @@ function Detail() {
       <section id="new-recipe">
         {/* <!-- title --> */}
         <div className="container">
-          <h2 className="title text-center">Loream Sandwich</h2>
+          <h2 className="title text-center">{id}</h2>
         </div>
         {/* <!-- content --> */}
         <div className="container">

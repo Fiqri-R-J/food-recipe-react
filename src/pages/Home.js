@@ -4,26 +4,37 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import IndexCard from "../components/molecules/IndexCard";
-
-const menu = [
-  {
-    name: "chiken kare",
-    image:
-      "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/chicken-kare.jpg",
-  },
-  {
-    name: "bomb-chicken",
-    image:
-      "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/bomb-chicken.png",
-  },
-  {
-    name: "sugar salmon",
-    image:
-      "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/sugar-salmon.png",
-  },
-];
+import Spiner from "../components/molecules/Spiner";
 
 function Home() {
+  let [keyword, setKeyword] = React.useState(
+    "Discover Recipe & Delicious Food"
+  );
+  let [menu, setMenu] = React.useState([]);
+  let [isloading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      setMenu([
+        {
+          name: "chiken kare",
+          image:
+            "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/chicken-kare.jpg",
+        },
+        {
+          name: "bomb-chicken",
+          image:
+            "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/bomb-chicken.png",
+        },
+        {
+          name: "sugar salmon",
+          image:
+            "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/sugar-salmon.png",
+        },
+      ]);
+    }, 3000);
+  }, []);
   return (
     <div>
       {/*<!-- Display for laptop -->*/}
@@ -41,13 +52,16 @@ function Home() {
           <div className="row align-items-center">
             {/* <!-- side left --> */}
             <div className="col-lg-5 col-xs-12 order-1 order-lg-0">
-              <h1>Discover Recipe & Delicious Food</h1>
+              <h1>{keyword}</h1>
               <div className="mt-4">
                 <input
                   type="text"
                   className="form-control form-control-lg"
                   id="form-search"
                   placeholder="search recipe..."
+                  onChange={(event) => {
+                    setKeyword(event.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -130,11 +144,19 @@ function Home() {
             <h2 className="title">Popular Recipe</h2>
           </div>
 
+          {isloading ? <Spiner /> : null}
+
+          {menu.length === 0 && !isloading ? <h2>Recipe Not Found</h2> : null}
+
           {/* <!-- recipe list --> */}
           <div className="row">
             {menu.map((item) => (
               <div className="col-lg-4 col-6">
-                <IndexCard image={item?.image} name={item?.name} />
+                <IndexCard
+                  image={item?.image}
+                  name={item?.name}
+                  url={item?.name?.toLocaleLowerCase()?.split(" ").join("-")}
+                />
               </div>
             ))}
           </div>
