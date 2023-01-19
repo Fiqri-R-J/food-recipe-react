@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [isLogin, setIsLogin] = React.useState(localStorage.getItem("isLogin"));
+
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 100) {
@@ -39,18 +41,43 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <div className="col-lg-2 col-xs-5">
-          <Link to="/login">
-            <button type="button" className="btn btn-warning shadow-sm me-3">
-              Log In
-            </button>
+        {isLogin ? (
+          <Link className="nav-item dropdown">
+            <img
+              src="./images/Ellipse127.png"
+              width="45px"
+              alt="profile"
+              className="nav-link dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+            />
+            <ul className="dropdown-menu">
+              <li>
+                <Link className="dropdown-item" to="/profile">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" href="/logut">
+                  logut
+                </Link>
+              </li>
+            </ul>
           </Link>
-          <Link to="/register">
-            <button type="button" className="btn btn-light shadow-sm">
-              Register
-            </button>
-          </Link>
-        </div>
+        ) : (
+          <div className="col-lg-2 col-xs-5">
+            <Link to="/login">
+              <button type="button" className="btn btn-warning shadow-sm me-3">
+                Log In
+              </button>
+            </Link>
+            <Link to="/register">
+              <button type="button" className="btn btn-light shadow-sm">
+                Register
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
