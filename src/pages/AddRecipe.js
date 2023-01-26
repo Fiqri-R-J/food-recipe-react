@@ -2,8 +2,20 @@ import React from "react";
 import "../styles/detail.css";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
+import { useNavigate } from "react-router-dom";
 
 function AddRecipe() {
+  const navigate = useNavigate();
+
+  //check if already login
+  React.useEffect(() => {
+    const isLogin = localStorage.getItem("isLogin");
+    const token = localStorage.getItem("token");
+
+    if (!isLogin && !token) {
+      navigate("/login");
+    }
+  }, []);
   return (
     <div>
       {/* <!-- Display for laptop --> */}

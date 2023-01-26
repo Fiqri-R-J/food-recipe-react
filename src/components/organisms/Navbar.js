@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const checkProfile = localStorage.getItem("profile")
+    ? JSON.parse(localStorage.getItem("profile"))
+    : null;
   const [isLogin, setIsLogin] = React.useState(localStorage.getItem("isLogin"));
-
+  const profile = checkProfile;
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 100) {
@@ -44,10 +47,15 @@ function Navbar() {
         {isLogin ? (
           <Link className="nav-item dropdown">
             <img
-              src="./images/Ellipse127.png"
-              width="45px"
+              src={profile.profil_picture}
+              width="40px"
+              height="40px"
+              style={{
+                objectFit: "cover",
+                borderRadius: " 50%",
+              }}
               alt="profile"
-              className="nav-link dropdown-toggle"
+              className="mx-auto d-block nav-link dropdown-toggle"
               role="button"
               data-bs-toggle="dropdown"
             />
@@ -58,8 +66,8 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link className="dropdown-item" href="/logut">
-                  logut
+                <Link className="dropdown-item" to="/logout">
+                  logout
                 </Link>
               </li>
             </ul>

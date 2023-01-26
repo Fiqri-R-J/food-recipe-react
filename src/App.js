@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
 import Maintenance from "./pages/Maintenance";
+import Logout from "./pages/Logout";
 import React from "react";
 
 // functional component
@@ -40,6 +41,10 @@ function App() {
     {
       path: "detail/:id",
       element: <Detail />,
+    },
+    {
+      path: "logout",
+      element: <Logout />,
     },
   ]);
 

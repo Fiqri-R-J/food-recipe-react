@@ -97,15 +97,24 @@ function Login() {
                       password,
                     })
                     .then((res) => {
+                      console.log(res.data.data.profile);
                       localStorage.setItem("isLogin", "true");
                       localStorage.setItem(
                         "token",
                         res?.data?.data?.token ?? ""
                       );
+                      console.log(res.data);
+                      localStorage.setItem(
+                        "profile",
+                        JSON.stringify(res?.data?.data?.profile)
+                      );
+                      navigate("/");
+                      setIsLoading(false);
                     })
                     .catch((err) => {
                       setIserror(true);
                       setErrMsg(err?.response?.data?.message ?? "System error");
+                      setIsLoading(false);
                     })
                     .finaly(() => setIsLoading(false));
                 }}

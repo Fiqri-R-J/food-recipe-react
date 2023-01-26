@@ -2,9 +2,25 @@ import React from "react";
 import "../styles/profile.css";
 import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Profile() {
+function Profile(props) {
+  const checkProfile = localStorage.getItem("profile")
+    ? JSON.parse(localStorage.getItem("profile"))
+    : null;
+  const navigate = useNavigate();
+  const [profile, setProfile] = React.useState(checkProfile);
+
+  //check if already login
+  React.useEffect(() => {
+    const isLogin = localStorage.getItem("isLogin");
+    const token = localStorage.getItem("token");
+
+    if (!isLogin && !token) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <div>
       {/* <!--Navbar--> */}
@@ -15,11 +31,11 @@ function Profile() {
         <div className="container">
           <div className="col mt-5">
             <img
-              src="./images/Ellipse127.png"
-              className="rounded mx-auto d-block"
+              src={profile?.profil_picture}
+              className="mx-auto d-block picture"
               alt="..."
             />
-            <h3 className="text-center mt-3">Garneta Sharina</h3>
+            <h3 className="text-center mt-3">{profile?.name}</h3>
           </div>
         </div>
       </section>
