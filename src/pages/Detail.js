@@ -5,7 +5,7 @@ import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 
 function Detail() {
-  let { id } = useParams();
+  let { id, images } = useParams();
   return (
     <div>
       {/* <!-- Display for laptop --> */}
@@ -25,11 +25,11 @@ function Detail() {
             {/* <!-- side left --> */}
             <div className="col-lg-6 col-xs-12">
               <img
-                src="./images/Rectangle 313.png"
+                src="../images/Rectangle 313.png"
                 width="100%"
                 height="500px"
                 className="main-image"
-                alt="detai-recipe"
+                alt="detail-recipe"
               />
             </div>
             {/* <!-- side right --> */}

@@ -5,6 +5,7 @@ import Navbar from "../components/organisms/Navbar";
 import Footer from "../components/organisms/Footer";
 import IndexCard from "../components/molecules/IndexCard";
 import Spiner from "../components/molecules/Spiner";
+import axios from "axios";
 
 function Home() {
   let [keyword, setKeyword] = React.useState(
@@ -14,26 +15,25 @@ function Home() {
   let [isloading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-      setMenu([
-        {
-          name: "chiken kare",
-          image:
-            "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/chicken-kare.jpg",
-        },
-        {
-          name: "bomb-chicken",
-          image:
-            "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/bomb-chicken.png",
-        },
-        {
-          name: "sugar salmon",
-          image:
-            "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/sugar-salmon.png",
-        },
-      ]);
-    }, 3000);
+    axios.get(`${process.env.REACT_APP_URL_BACKEND}/recipe`)
+    setIsLoading(false);
+    // setMenu([
+    //   {
+    //     name: "chiken kare",
+    //     image:
+    //       "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/chicken-kare.jpg",
+    //   },
+    //   {
+    //     name: "bomb-chicken",
+    //     image:
+    //       "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/bomb-chicken.png",
+    //   },
+    //   {
+    //     name: "sugar salmon",
+    //     image:
+    //       "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/sugar-salmon.png",
+    //   },
+    // ]);
   }, []);
   return (
     <div>
