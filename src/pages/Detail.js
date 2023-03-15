@@ -6,6 +6,9 @@ import Footer from "../components/organisms/Footer";
 
 function Detail() {
   let { id, images } = useParams();
+  let data = localStorage.getItem("detailMenu");
+  let [menu, setMenu] = React.useState(JSON.parse(data));
+  console.log(menu);
   return (
     <div>
       {/* <!-- Display for laptop --> */}
@@ -17,7 +20,7 @@ function Detail() {
       <section id="new-recipe">
         {/* <!-- title --> */}
         <div className="container">
-          <h2 className="title text-center">{id}</h2>
+          <h2 className="title text-center">{menu?.name}</h2>
         </div>
         {/* <!-- content --> */}
         <div className="container">
@@ -25,7 +28,7 @@ function Detail() {
             {/* <!-- side left --> */}
             <div className="col-lg-6 col-xs-12">
               <img
-                src="../images/Rectangle 313.png"
+                src={menu?.picture}
                 width="100%"
                 height="500px"
                 className="main-image"
@@ -34,22 +37,9 @@ function Detail() {
             </div>
             {/* <!-- side right --> */}
             <div className="col-lg-5 offset-lg-1 col-xs-12 mt-xs-5">
-              <h4>Ingredients</h4>- 2 eggs,
-              <br />
-              - 2 tbsp mayonnaise, <br />
-              - 3 slices bread,
-              <br />
-              - a little butter,
-              <br />
-              - ⅓ carton of cress,
-              <br />
-              - 2-3 slices of
-              <br />
-              tomato or a lettuce leaf, and a slice of ham or cheese,
-              <br />
-              - crisps ,<br />
-              to serve,
-              <h4>Video Step</h4>
+              <h4 className="mb-2">Ingredients</h4>
+              {menu?.ingredients}
+              <h4 className="mt-4">Video Step</h4>
               <button
                 type="button"
                 className="btn btn-warning"
@@ -72,7 +62,7 @@ function Detail() {
                       <iframe
                         width="100%"
                         height="315"
-                        src="https://www.youtube.com/embed/TUhBKhuSqX4"
+                        src={menu?.video}
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

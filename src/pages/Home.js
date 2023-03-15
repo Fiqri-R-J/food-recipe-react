@@ -14,27 +14,34 @@ function Home() {
   let [menu, setMenu] = React.useState([]);
   let [isloading, setIsLoading] = React.useState(true);
 
+  let detailMenu = async (id) => {
+    try {
+      const data = await axios.get(
+        `${process.env.REACT_APP_URL_BACKEND}/recipe/${id}`
+      );
+      console.log("tes", data?.data?.data?.[0]);
+      localStorage.setItem("detailMenu", JSON.stringify(data?.data?.data?.[0]));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   React.useEffect(() => {
-    axios.get(`${process.env.REACT_APP_URL_BACKEND}/recipe`)
-    setIsLoading(false);
-    // setMenu([
-    //   {
-    //     name: "chiken kare",
-    //     image:
-    //       "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/chicken-kare.jpg",
-    //   },
-    //   {
-    //     name: "bomb-chicken",
-    //     image:
-    //       "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/bomb-chicken.png",
-    //   },
-    //   {
-    //     name: "sugar salmon",
-    //     image:
-    //       "https://raw.githubusercontent.com/Fiqri-R-J/food-recipe-react/master/public/images/home/sugar-salmon.png",
-    //   },
-    // ]);
+    const displayMenu = async () => {
+      try {
+        const data = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/recipe`
+        );
+        setMenu(data?.data?.data);
+        setIsLoading(false);
+        console.log(data);
+      } catch (error) {
+        console.log("ini error", error);
+      }
+    };
+    displayMenu();
   }, []);
+  console.log("haloo", menu);
   return (
     <div>
       {/*<!-- Display for laptop -->*/}
@@ -150,10 +157,14 @@ function Home() {
 
           {/* <!-- recipe list --> */}
           <div className="row">
-            {menu.map((item) => (
-              <div className="col-lg-4 col-6">
+            {menu.map((item, key) => (
+              <div
+                className="col-lg-4 col-6"
+                key={key}
+                onClick={detailMenu(item?.id)}
+              >
                 <IndexCard
-                  image={item?.image}
+                  image={item?.picture}
                   name={item?.name}
                   url={item?.name?.toLocaleLowerCase()?.split(" ").join("-")}
                 />
