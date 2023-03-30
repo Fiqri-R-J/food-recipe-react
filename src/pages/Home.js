@@ -41,7 +41,6 @@ function Home() {
     };
     displayMenu();
   }, []);
-  console.log("haloo", menu);
   return (
     <div>
       {/*<!-- Display for laptop -->*/}

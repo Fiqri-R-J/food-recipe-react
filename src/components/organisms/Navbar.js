@@ -34,13 +34,32 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item me-5">
-              <Link to="/">Home</Link>
+              <Link
+                to="/"
+                className="link-dark fw-bold"
+                style={{ textDecoration: "none" }}
+              >
+                Home
+              </Link>
             </li>
             <li className="nav-item me-5">
-              <Link to="/addrecipe">Add Recipe</Link>
+              <Link
+                to="/addrecipe"
+                className="link-dark fw-bold"
+                style={{ textDecoration: "none" }}
+              >
+                Add Recipe
+              </Link>
             </li>
             <li className="nav-item me-5">
-              <Link to="/profile"> Profile</Link>
+              <Link
+                to="/profile"
+                className="link-dark fw-bold"
+                style={{ textDecoration: "none" }}
+              >
+                {" "}
+                Profile
+              </Link>
             </li>
           </ul>
         </div>
@@ -75,12 +94,18 @@ function Navbar() {
         ) : (
           <div className="col-lg-2 col-xs-5">
             <Link to="/login">
-              <button type="button" className="btn btn-warning shadow-sm me-3">
+              <button
+                type="button"
+                className="btn btn-warning shadow-sm me-3 fw-semibold"
+              >
                 Log In
               </button>
             </Link>
             <Link to="/register">
-              <button type="button" className="btn btn-light shadow-sm">
+              <button
+                type="button"
+                className="btn btn-light shadow-sm fw-semibold"
+              >
                 Register
               </button>
             </Link>
